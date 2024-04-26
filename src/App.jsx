@@ -1,12 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNavbar from "./components/MyNavbar";
+import Homepage from "./components/Homepage";
 
 function App() {
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <MyNavbar />
+      </header>
 
-      <body></body>
+      <main>
+        <Homepage />
+      </main>
 
       <footer></footer>
     </div>
