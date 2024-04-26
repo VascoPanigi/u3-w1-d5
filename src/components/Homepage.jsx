@@ -1,9 +1,6 @@
 import { Component } from "react";
-import { Container, Row, Col, ButtonGroup, Dropdown } from "react-bootstrap";
+import { Container, Row, ButtonGroup, Dropdown } from "react-bootstrap";
 import { BiGrid } from "react-icons/bi";
-
-import tvShow1 from "../assets/1.png";
-import tvShow2 from "../assets/2.png";
 import SingleMovieCard from "./SingleMovieCard";
 
 class Homepage extends Component {
@@ -15,7 +12,7 @@ class Homepage extends Component {
 
   fetchMovies = () => {
     console.log("fetch in corso...");
-    fetch("http://www.omdbapi.com/?i=tt3896198&apikey=f56391e1&s=lord of rings")
+    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=f56391e1&s=Harry-Potter`)
       .then((response) => {
         if (response.ok) {
           console.log("fetch conclusa");
@@ -72,13 +69,15 @@ class Homepage extends Component {
         </div>
         <h4 className="section-title mb-3">Trending Now</h4>
         <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
-          {this.state.movies.Search?.slice(0, 6).map((movie) => (
-            //versione precedente del codice prima di creare una componente a parte
-            //   <Col key={movie.imdbID} className="mb-2 text-center px-1">
-            //     <img className="img-fluid" src={movie.Poster} alt={movie.Title} />
-            //   </Col>
-            <SingleMovieCard key={movie.imdbID} movie={movie} />
-          ))}
+          <div id="Pirates-of-the-caribbean">
+            {this.state.movies.Search?.slice(0, 6).map((movie) => (
+              //versione precedente del codice prima di creare una componente a parte
+              //   <Col key={movie.imdbID} className="mb-2 text-center px-1">
+              //     <img className="img-fluid" src={movie.Poster} alt={movie.Title} />
+              //   </Col>
+              <SingleMovieCard key={movie.imdbID} movie={movie} />
+            ))}
+          </div>
         </Row>
         <h4 className="section-title mb-3">Watch it Again</h4>
         <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"></Row>
