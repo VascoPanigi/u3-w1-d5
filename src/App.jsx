@@ -2,10 +2,11 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/MyNavbar";
 import Homepage from "./components/Homepage";
+import MyFooter from "./components/MyFooter";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <header>
         <MyNavbar />
       </header>
@@ -14,7 +15,9 @@ function App() {
         <Homepage />
       </main>
 
-      <footer></footer>
+      <footer>
+        <MyFooter />
+      </footer>
     </div>
   );
 }

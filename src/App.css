@@ -37,14 +37,21 @@
   }
 }
 
-.App {
+/* main {
   background-color: #221f1f !important;
-}
-
-main {
+} */
+body {
   background-color: #221f1f !important;
 }
 
 .section-title {
   color: #f5f5f1;
+}
+
+.footer-links > a {
+  color: #949494;
+}
+
+.footer-links > a:hover {
+  color: #ffffff;
 }
