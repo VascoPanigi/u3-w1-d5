@@ -59,3 +59,81 @@ body {
 .movie-poster {
   max-height: 320px;
 }
+
+#profile-body {
+  height: 100vh;
+  /* vertical-align: middle; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-section-container {
+  h4 {
+    font-size: 1.2rem;
+    color: #adb5bd;
+    margin-block-start: 1.2rem;
+  }
+}
+
+.maturity-settings-container {
+  .dropdown {
+    button {
+      color: white;
+      margin-block: 1rem;
+    }
+  }
+}
+
+.profile-img-container > img {
+  max-width: 80%;
+}
+
+.autoplay-controls-container {
+  label {
+    font-size: 0.9rem;
+  }
+}
+
+.form-check-input {
+  box-shadow: none;
+  border: 1px solid #343a40;
+  border-radius: 1px;
+  padding: 15px;
+  margin-inline-end: 15px;
+  &:checked {
+    box-shadow: none;
+    border: 1px solid #343a40;
+  }
+  &:focus {
+    box-shadow: none;
+    border: 1px solid #343a40;
+  }
+  &:active {
+    box-shadow: none;
+    border: 1px solid #343a40;
+  }
+}
+
+.form-check:nth-of-type(1) {
+  margin-block-end: 0.3rem;
+}
+
+.edit-title-container {
+  h1 {
+    margin-bottom: -20px;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+}
+
+.pencil-container {
+  position: relative;
+  top: -32px;
+  right: -5px;
+  border-radius: 50%;
+  padding-block: 0;
+  padding-inline: 7px;
+  background-color: black;
+  border: 1px solid white;
+}
