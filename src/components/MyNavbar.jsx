@@ -28,12 +28,12 @@ const MyNavbar = () => (
           </Nav.Link>
         </Nav>
         <div className="d-flex gap-3 align-items-center" data-bs-theme="dark">
-          <BiSearch className="icons" fill="#f5f5f1" />
+          <BiSearch className="icons" fill="#f5f5f1" style={{ width: "20px", height: "20px" }} />
           <div id="kids" className="fw-bold" style={{ color: "#f5f5f1" }}>
             KIDS
           </div>
-          <BiBell className="icons" fill="#f5f5f1" />
-          <BiUserCircle className="icons" fill="#f5f5f1" />
+          <BiBell className="icons" fill="#f5f5f1" style={{ width: "20px", height: "20px" }} />
+          <BiUserCircle className="icons" fill="#f5f5f1" style={{ width: "20px", height: "20px" }} />
         </div>
       </Navbar.Collapse>
     </Container>

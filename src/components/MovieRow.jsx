@@ -1,7 +1,7 @@
 import { Component } from "react";
-import { Row } from "react-bootstrap";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Alert, Spinner } from "react-bootstrap";
 
 import SingleMovieCard from "./SingleMovieCard";
 import Slider from "react-slick";
@@ -13,27 +13,27 @@ class MovieRow extends Component {
     isError: false,
   };
 
-  fetchMovies = () => {
-    console.log("fetch in corso...");
-    // console.log(this.props.name);
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=f56391e1&s=${this.props.name}`)
-      .then((response) => {
-        if (response.ok) {
-          console.log("fetch conclusa");
-          return response.json();
-        } else {
-          throw new Error("Errore nella fetch");
-        }
-      })
-      .then((movies) => {
-        console.log(movies);
-        this.setState({ movies });
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({ isError: true });
-      })
-      .finally(() => this.setState({ isLoading: false }));
+  fetchMovies = async () => {
+    this.setState({ isLoading: true });
+
+    try {
+      console.log("fetching your data...");
+      const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=f56391e1&s=${this.props.name}`);
+
+      if (!response.ok) {
+        throw new Error("error during fetching");
+      }
+
+      console.log("fetch successful");
+      const movies = await response.json();
+      // console.log(movies);
+      this.setState({ movies });
+    } catch (err) {
+      console.log(err);
+      this.setState({ isError: true });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
   componentDidMount() {
@@ -54,14 +54,14 @@ class MovieRow extends Component {
         {
           breakpoint: 1400,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 6,
             slidesToScroll: 1,
           },
         },
         {
           breakpoint: 1200,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 1,
           },
         },
@@ -97,17 +97,28 @@ class MovieRow extends Component {
     };
 
     return (
-      //   <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
-      <Slider {...settings} className="ms-2 me-2">
-        {this.state.movies.Search?.slice(0, 7).map((movie) => (
-          //versione precedente del codice prima di creare una componente a parte
-          //   <Col key={movie.imdbID} className="mb-2 text-center px-1">
-          //     <img className="img-fluid" src={movie.Poster} alt={movie.Title} />
-          //   </Col>
-          <SingleMovieCard key={movie.imdbID} movie={movie} />
-        ))}
-      </Slider>
-      // </Row>
+      <>
+        {this.state.isLoading && <Spinner animation="grow" variant="danger" />}
+
+        {/* //   <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"> */}
+        {this.state.isError && (
+          <Alert variant="danger">
+            Error during fetch, try again and if the error persists please contact the support.
+          </Alert>
+        )}
+        {!this.state.isError && (
+          <Slider {...settings} className="ms-2 me-2">
+            {this.state.movies.Search?.slice(0, 7).map((movie) => (
+              //versione precedente del codice prima di creare una componente a parte
+              //   <Col key={movie.imdbID} className="mb-2 text-center px-1">
+              //     <img className="img-fluid" src={movie.Poster} alt={movie.Title} />
+              //   </Col>
+              <SingleMovieCard key={movie.imdbID} movie={movie} />
+            ))}
+          </Slider>
+        )}
+        {/* // </Row> */}
+      </>
     );
   }
 }

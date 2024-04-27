@@ -1,13 +1,10 @@
 import { Component } from "react";
-import { Container, Row, ButtonGroup, Dropdown } from "react-bootstrap";
-import { BiGrid } from "react-icons/bi";
-import SingleMovieCard from "./SingleMovieCard";
+import { Container, ButtonGroup, Dropdown } from "react-bootstrap";
+import { BiGridAlt, BiSolidGridAlt } from "react-icons/bi";
 import MovieRow from "./MovieRow";
 
 class Homepage extends Component {
   render() {
-    // console.log(this.state.movies);
-    // console.log(this.state.movies.Search);
     return (
       <Container fluid className="px-4 mt-5" data-bs-theme="dark">
         <div className="d-flex justify-content-between" data-bs-theme="dark">
@@ -32,17 +29,24 @@ class Homepage extends Component {
             </ButtonGroup>
           </div>
           <div>
-            <BiGrid className="icons" />
-            <BiGrid className="icons" />
+            <BiGridAlt className="icons" style={{ color: "#f5f5f1", width: "20px", height: "20px" }} />
+            <BiSolidGridAlt className="icons" style={{ color: "#f5f5f1", width: "20px", height: "20px" }} />
           </div>
         </div>
-        <h4 className="section-title mb-3 mt-3">Trending Now</h4>
+        <h4 className="section-title mb-3 mt-5">Pirates world</h4>
         <MovieRow name="Pirates-of-the-Caribbean" />
-        <h4 className="section-title mb-3 mt-3">Watch it Again</h4>
+        <h4 className="section-title mb-3 mt-5">Magical adventures</h4>
         <MovieRow name="Harry-Potter" />
 
-        <h4 className="section-title mb-3 mt-3">New Releases</h4>
+        <h4 className="section-title mb-3 mt-5">Just a Batman section</h4>
+
         <MovieRow name="Batman" />
+        <h4 className="section-title mb-3 mt-5">Looking for adventure?</h4>
+
+        <MovieRow name="Adventure" />
+        <h4 className="section-title mb-3 mt-5">Up for a ride?</h4>
+
+        <MovieRow name="Car" />
       </Container>
     );
   }
