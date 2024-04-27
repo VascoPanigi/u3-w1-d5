@@ -100,7 +100,6 @@ class MovieRow extends Component {
       <>
         {this.state.isLoading && <Spinner animation="grow" variant="danger" />}
 
-        {/* //   <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"> */}
         {this.state.isError && (
           <Alert variant="danger">
             Error during fetch, try again and if the error persists please contact the support.
@@ -109,15 +108,10 @@ class MovieRow extends Component {
         {!this.state.isError && (
           <Slider {...settings} className="ms-2 me-2">
             {this.state.movies.Search?.slice(0, 7).map((movie) => (
-              //versione precedente del codice prima di creare una componente a parte
-              //   <Col key={movie.imdbID} className="mb-2 text-center px-1">
-              //     <img className="img-fluid" src={movie.Poster} alt={movie.Title} />
-              //   </Col>
               <SingleMovieCard key={movie.imdbID} movie={movie} />
             ))}
           </Slider>
         )}
-        {/* // </Row> */}
       </>
     );
   }
