@@ -37,9 +37,6 @@
   }
 }
 
-/* main {
-  background-color: #221f1f !important;
-} */
 body {
   background-color: #221f1f !important;
 }
@@ -60,9 +57,12 @@ body {
   max-height: 320px;
 }
 
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+
 #profile-body {
   height: 100vh;
-  /* vertical-align: middle; */
   display: flex;
   justify-content: center;
   align-items: center;
