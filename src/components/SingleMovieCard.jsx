@@ -7,7 +7,7 @@ const SingleMovieCard = (props) => {
 
   return (
     <Col className="mb-2 text-center px-1">
-      <img className="img-fluid" src={Poster} alt={Title} />
+      <img className="img-fluid movie-poster" src={Poster} alt={Title} />
     </Col>
   );
 };

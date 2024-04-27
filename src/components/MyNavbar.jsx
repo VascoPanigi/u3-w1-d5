@@ -4,7 +4,7 @@ import { BiSearch, BiBell, BiUserCircle } from "react-icons/bi";
 
 const MyNavbar = () => (
   <Navbar expand="lg" className="my-navbar" data-bs-theme="dark" style={{ backgroundColor: "#221f1f" }}>
-    <Container>
+    <Container fluid className="ms-2 me-2">
       <Navbar.Brand href="#Home">
         <img src={logo} alt="Netflix logo" style={{ width: "100px", height: "55px" }} />
       </Navbar.Brand>

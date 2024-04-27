@@ -45,8 +45,8 @@ const Homepage = () => (
       </Col>
       <Col className="mb-2 text-center px-1">
         <img className="img-fluid" src={tvShow2} alt="TV show" />
-      </Col>
-    </Row> */}
+      </Col>*/}
+    </Row>
     <h4 className="section-title mb-3">Watch it Again</h4>
     <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
       {/* <Col className="mb-2 text-center px-1">
